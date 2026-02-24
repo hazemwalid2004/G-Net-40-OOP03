@@ -27,6 +27,24 @@
             //d) Can you create an object from a sealed class using new? Why or why not?
             //yes we can but we can't inhert from it 
             #endregion
+            #region Part2
+            Cinema cinema = new Cinema();
+            cinema.OpenCinema();
+            StandardTicket standTicket=new StandardTicket("Inception",120,"A-5");
+            VIPTicket vIP=new VIPTicket("Avengers",200,true);
+            IMAXTicket iMAX=new IMAXTicket("Dune",180,false);
+            cinema.AddTicket(standTicket);
+            cinema.AddTicket(vIP);
+            cinema.AddTicket(iMAX);
+            cinema.PrintAllTickets();
+            Console.WriteLine($"======Statistics=====");
+            Console.WriteLine($"Total Tickets Created : {Ticket.GetTotalTickets()}");
+            Console.WriteLine($"Bokking Referance 1:{BookingHelper.GenerateBookingReference()}");
+            Console.WriteLine($"Bokking Referance 2:{BookingHelper.GenerateBookingReference()}");
+            Console.WriteLine($"Group Discount(5 tickets*100 EGP):{BookingHelper.CalcGroupDiscount(5, 100)}");
+            cinema.CloseCinema();
+
+            #endregion
         }
     }
 }
